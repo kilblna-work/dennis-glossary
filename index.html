@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="숏폼 게임 플랫폼, 서비스 구축 네트워크, 마케팅과 사업 전략을 위한 분야별 용어집.">
+  <meta name="color-scheme" content="light dark">
+  <title>용어집 모음 · Dennis Glossary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f4ef;
+      --ink: #202a35;
+      --muted: #626b74;
+      --line: #d4d7d5;
+      --accent: #244c67;
+      --wash: #eaece6;
+      --label: #8a4b32;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: auto; padding: 0 48px; }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 29px 0 22px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .brand, .edition, .eyebrow, .number, .category, .footer-note {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+    .brand { font-weight: 500; font-size: 12px; }
+    .edition { color: var(--muted); }
+    .intro {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      align-items: end;
+      gap: 48px;
+      padding: 78px 0 65px;
+    }
+    .eyebrow { color: var(--label); margin: 0 0 21px; }
+    h1 {
+      font-family: "Noto Serif KR", "Batang", serif;
+      font-size: clamp(36px, 5.5vw, 58px);
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -.055em;
+      margin: 0;
+      word-break: keep-all;
+    }
+    .intro-copy { color: var(--muted); font-size: 15px; line-height: 1.9; margin: 0 0 6px; word-break: keep-all; }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0 14px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .section-heading h2 { font-size: 13px; font-weight: 500; margin: 0; }
+    .section-heading span { color: var(--muted); font-size: 12px; }
+    .collection { list-style: none; padding: 0; margin: 0; }
+    .entry {
+      display: grid;
+      grid-template-columns: 64px 1fr 44px;
+      gap: 20px;
+      align-items: start;
+      padding: 31px 18px 33px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      transition: background .18s, padding .18s;
+    }
+    .entry:hover { background: var(--wash); padding-left: 18px; }
+    .entry:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .number { color: var(--label); padding-top: 3px; font-size: 13px; }
+    .category { display: block; color: var(--muted); margin-bottom: 9px; font-size: 10px; }
+    h3 { font-size: clamp(20px, 2.5vw, 25px); font-weight: 500; letter-spacing: -.04em; margin: 0 0 10px; word-break: keep-all; }
+    .description { color: var(--muted); font-size: 14px; line-height: 1.8; margin: 0; word-break: keep-all; }
+    .topics { display: block; color: var(--accent); font-size: 12px; line-height: 1.8; margin-top: 15px; }
+    .arrow {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 20px;
+      transition: background .18s, color .18s;
+    }
+    .entry:hover .arrow { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px 0 36px; color: var(--muted); }
+    footer p { margin: 0; font-size: 12px; line-height: 1.8; }
+    .footer-note { font-size: 10px; }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 22px; }
+      .masthead { padding-top: 23px; }
+      .edition { font-size: 10px; }
+      .intro { grid-template-columns: 1fr; gap: 24px; padding: 48px 0 40px; }
+      .intro-copy { font-size: 14px; }
+      .entry { grid-template-columns: 26px 1fr 28px; gap: 12px; padding: 26px 0; }
+      .entry:hover { padding-left: 0; }
+      .arrow { width: 28px; height: 28px; font-size: 17px; }
+      .description { font-size: 13px; }
+      footer { flex-direction: column; gap: 10px; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #151c23;
+        --ink: #e4e8e8;
+        --muted: #a2aeb7;
+        --line: #36424b;
+        --accent: #9fc5df;
+        --wash: #202b34;
+        --label: #dfac88;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .entry, .arrow { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <span class="brand">DENNIS / GLOSSARY</span>
+      <span class="edition">REFERENCE LIBRARY</span>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="eyebrow">일을 위한 공통 언어</p>
+          <h1>같은 용어,<br>명확한 이해.</h1>
+        </div>
+        <p class="intro-copy">기획부터 구축, 성장까지.<br>함께 일할 때 필요한 개념과 표현을 모았습니다.<br>궁금한 분야를 선택해 용어를 찾아보세요.</p>
+      </div>
+      <nav aria-labelledby="collection-title">
+        <div class="section-heading">
+          <h2 id="collection-title">분야별 용어집</h2>
+          <span>3개의 용어집</span>
+        </div>
+        <ol class="collection">
+          <li>
+            <a class="entry" href="./숏폼 게임 플랫폼 용어집.html" aria-labelledby="game-title" aria-describedby="game-desc">
+              <span class="number" aria-hidden="true">01</span>
+              <div>
+                <span class="category" lang="en">PRODUCT &amp; PLAY</span>
+                <h3 id="game-title">숏폼 게임 플랫폼 용어집</h3>
+                <p class="description" id="game-desc">HTML5 숏폼 게임 플랫폼을 기획할 때 사용하는 개념과 업계 표준 용어를 정리합니다.</p>
+                <span class="topics">게임 · 콘텐츠 피드 · 플랫폼 기획</span>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="entry" href="./서비스 구축 네트워크 용어집.html" aria-labelledby="network-title" aria-describedby="network-desc">
+              <span class="number" aria-hidden="true">02</span>
+              <div>
+                <span class="category" lang="en">NETWORK &amp; INFRASTRUCTURE</span>
+                <h3 id="network-title">서비스 구축 네트워크 용어집</h3>
+                <p class="description" id="network-desc">서비스의 설계, 구현, 배포와 운영에 필요한 네트워크 용어와 클라우드 개념을 살펴봅니다.</p>
+                <span class="topics">네트워크 · AWS · GCP · Azure</span>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="entry" href="./마케팅 · 사업 전략 용어집.html" aria-labelledby="marketing-title" aria-describedby="marketing-desc">
+              <span class="number" aria-hidden="true">03</span>
+              <div>
+                <span class="category" lang="en">MARKETING &amp; BUSINESS</span>
+                <h3 id="marketing-title">마케팅 · 사업 전략 용어집</h3>
+                <p class="description" id="marketing-desc">서비스 성장과 수익화를 위한 표준 용어를 지표의 정의, 산식, 집계 단위와 함께 확인합니다.</p>
+                <span class="topics">마케팅 · 성과 지표 · 수익화 · 정산</span>
+              </div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </main>
+    <footer>
+      <p>각 용어집에서 검색과 분류별 탐색을 이용할 수 있습니다.</p>
+      <p class="footer-note">DENNIS GLOSSARY / INDEX</p>
+    </footer>
+  </div>
+</body>
+</html>

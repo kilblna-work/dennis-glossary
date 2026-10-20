@@ -1,0 +1,504 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>숏폼 게임 플랫폼 용어집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@500;700&display=swap">
+<style>
+:root{
+  --paper:#F1F3F6;
+  --surface:#FFFFFF;
+  --surface-2:#F7F8FA;
+  --ink:#161A22;
+  --ink-soft:#535B6B;
+  --ink-faint:#89909F;
+  --line:#DDE1E8;
+  --line-soft:#E9ECF1;
+  --accent:#1F3A6E;
+  --accent-live:#33559E;
+  --clay:#9E4529;
+  --clay-soft:#F3E7E2;
+  --tag-bg:#E8EBF1;
+  --shadow:0 1px 2px rgba(22,26,34,.05), 0 8px 24px -18px rgba(22,26,34,.35);
+
+  --f-display:"Noto Serif KR",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans KR","Malgun Gothic",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101319;
+    --surface:#171B23;
+    --surface-2:#1C212B;
+    --ink:#E4E7EE;
+    --ink-soft:#9BA3B4;
+    --ink-faint:#6B7383;
+    --line:#282E3A;
+    --line-soft:#212733;
+    --accent:#8CA8E8;
+    --accent-live:#A6BCF0;
+    --clay:#DE8C67;
+    --clay-soft:#2A2019;
+    --tag-bg:#232936;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101319;
+  --surface:#171B23;
+  --surface-2:#1C212B;
+  --ink:#E4E7EE;
+  --ink-soft:#9BA3B4;
+  --ink-faint:#6B7383;
+  --line:#282E3A;
+  --line-soft:#212733;
+  --accent:#8CA8E8;
+  --accent-live:#A6BCF0;
+  --clay:#DE8C67;
+  --clay-soft:#2A2019;
+  --tag-bg:#232936;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:15px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+
+/* ---------- masthead ---------- */
+.mast{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0 0 14px;
+}
+h1{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(30px,4.4vw,46px);line-height:1.18;letter-spacing:-.02em;
+  margin:0 0 18px;text-wrap:balance;
+}
+.lede{max-width:62ch;color:var(--ink-soft);font-size:16px;margin:0 0 6px}
+.lede strong{color:var(--ink);font-weight:500}
+.mast-meta{
+  display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;
+  font-family:var(--f-mono);font-size:11.5px;color:var(--ink-faint);letter-spacing:.02em;
+}
+.mast-meta span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+.dot.clay{background:var(--clay);border-radius:1px}
+
+/* ---------- controls ---------- */
+.controls{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  margin-bottom:34px;
+}
+.controls-inner{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:14px 0}
+#q{
+  flex:1 1 260px;min-width:0;
+  font-family:var(--f-body);font-size:14.5px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:7px;
+  padding:9px 13px;outline:none;transition:border-color .15s, box-shadow .15s;
+}
+#q::placeholder{color:var(--ink-faint)}
+#q:focus{border-color:var(--accent-live);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-live) 18%,transparent)}
+.toggle{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+  font-size:13px;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:7px;padding:8px 13px;background:var(--surface);
+  transition:.15s;
+}
+.toggle:hover{border-color:var(--clay)}
+.toggle input{accent-color:var(--clay);margin:0}
+.toggle.on{border-color:var(--clay);color:var(--clay);background:var(--clay-soft)}
+.count{font-family:var(--f-mono);font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- layout ---------- */
+.cols{display:grid;grid-template-columns:206px minmax(0,1fr);gap:52px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr;gap:24px}}
+
+nav.toc{position:sticky;top:74px}
+@media (max-width:900px){
+  nav.toc{position:static;display:flex;flex-wrap:wrap;gap:7px;padding-bottom:8px}
+}
+.toc-h{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:12px;
+}
+@media (max-width:900px){.toc-h{display:none}}
+.toc a{
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  color:var(--ink-soft);text-decoration:none;font-size:13.5px;
+  padding:5px 0;border-bottom:1px solid transparent;transition:color .13s;
+}
+.toc a:hover{color:var(--accent-live)}
+.toc a .n{font-family:var(--f-mono);font-size:11px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.toc a.coin{color:var(--clay)}
+@media (max-width:900px){
+  .toc a{border:1px solid var(--line);border-radius:20px;padding:5px 12px;background:var(--surface);font-size:12.5px}
+}
+
+/* ---------- sections ---------- */
+section{margin-bottom:46px;scroll-margin-top:78px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+h2{
+  font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:-.01em;
+  margin:0;color:var(--ink);
+}
+.sec-n{font-family:var(--f-mono);font-size:11px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.sec-note{color:var(--ink-faint);font-size:13.5px;margin:0 0 16px;max-width:66ch}
+
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:2px;
+  padding:15px 0 16px;border-bottom:1px solid var(--line-soft);
+}
+.row-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px}
+.term{font-weight:600;font-size:15.5px;letter-spacing:-.005em;color:var(--ink)}
+.en{font-family:var(--f-mono);font-size:12.5px;color:var(--accent);letter-spacing:-.01em}
+.src{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-faint);background:var(--tag-bg);border-radius:3px;padding:2px 6px;
+}
+.def{color:var(--ink-soft);font-size:14.2px;max-width:74ch;margin:3px 0 0}
+.note{
+  margin:9px 0 0;padding:8px 12px;
+  background:var(--surface-2);border-left:2px solid var(--accent);
+  font-size:13.4px;color:var(--ink-soft);max-width:74ch;border-radius:0 4px 4px 0;
+}
+.note b{color:var(--ink);font-weight:500}
+
+/* coinage rows */
+.row.coined{padding-left:14px;border-left:2px solid var(--clay);background:linear-gradient(90deg,var(--clay-soft),transparent 62%)}
+.row.coined .en{color:var(--clay)}
+.swap{
+  margin:8px 0 0;font-size:13.6px;color:var(--ink-soft);max-width:74ch;
+  display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;
+}
+.swap .lbl{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--clay);border:1px solid var(--clay);border-radius:3px;padding:1px 5px;white-space:nowrap;
+}
+.swap b{color:var(--ink);font-weight:600}
+
+.empty{padding:44px 0;color:var(--ink-faint);font-size:14px;text-align:center;display:none}
+
+footer{
+  margin-top:56px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--ink-faint);font-size:12.8px;max-width:74ch;
+}
+footer p{margin:0 0 8px}
+a{color:var(--accent-live)}
+:focus-visible{outline:2px solid var(--accent-live);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">HTML5 숏폼 게임 플랫폼 기획 · 공용 어휘</p>
+    <h1>숏폼 게임 플랫폼 용어집</h1>
+    <p class="lede">기획 세션에서 오간 개념을 <strong>업계에서 실제로 통용되는 명칭</strong>으로 고정한 문서입니다. 마지막 절에는 논의 과정에서 편의상 만들어 쓴 임시 표현을 따로 모아, 대외 문서에서 대체할 표준어를 붙였습니다.</p>
+    <div class="mast-meta">
+      <span><i class="dot"></i>업계 표준 용어</span>
+      <span><i class="dot clay"></i>세션 임시 조어 — 대체어 필요</span>
+      <span>규격·법령 출처는 회색 태그로 표기</span>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <input id="q" type="search" placeholder="용어, 원어, 설명 검색 (예: eCPM, 서비스 워커, 등급분류)" autocomplete="off">
+      <label class="toggle" id="coinToggle"><input type="checkbox" id="onlyCoined">조어만 보기</label>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div class="cols">
+    <nav class="toc" id="toc"><div class="toc-h">분류</div></nav>
+    <main id="main"><div class="empty" id="empty">검색 결과가 없습니다.</div></main>
+  </div>
+
+  <footer>
+    <p>표기 원칙 — 한국어 명칭을 앞에 두고 원어를 병기했습니다. 원어가 사실상 그대로 쓰이는 용어(eCPM, PWA, LiveOps 등)는 원어를 우선했습니다.</p>
+    <p>규격이 개정되는 항목(애플 심사 가이드라인, IAB 표준, 브라우저 정책, 국내 등급분류 제도)은 착수 시점에 원문을 다시 확인해야 합니다.</p>
+  </footer>
+</div>
+
+<script>
+const CATS = [
+  ["plat","플랫폼 · 배급 모델","웹 포털과 슈퍼앱 미니게임은 같은 HTML5를 쓰지만 사업 구조가 다릅니다. 그 경계를 가르는 용어들."],
+  ["feed","숏폼 · 피드 배급","숏폼을 길이가 아니라 배급 방식으로 정의할 때 필요한 용어들."],
+  ["web","웹 런타임 · 성능","게임을 브라우저에서 띄우고 격리하고 빠르게 만드는 층."],
+  ["pwa","PWA · 설치 · 앱 래핑","웹에서 리텐션 표면을 확보할 때 쓰는 기술과 그 한계."],
+  ["sdk","게임 SDK · 연동","플랫폼과 게임이 주고받는 계약."],
+  ["ads","광고 · 수익화","웹게임 수익의 거의 전부가 여기서 나옵니다."],
+  ["metric","지표 · 그로스","무엇을 성공으로 부를지 정하는 어휘."],
+  ["seo","획득 · SEO · 채널","유저를 데려오는 쪽. 이 프로젝트의 최대 미해결 영역."],
+  ["content","장르 · 콘텐츠 제작","피드에 무엇을 채울지, 어떻게 찍어낼지."],
+  ["acct","계정 · 소셜 · 공정성","로그인, 친구 관계, 그리고 점수를 믿을 수 있게 만드는 문제."],
+  ["law","규제 · 심의 · 라이선스","되돌리기 가장 어려운 제약. 국내 서비스는 등급분류가 별도로 걸립니다."],
+  ["data","데이터 · 실험 · 운영","추천의 원료를 쌓고 제품을 굴리는 층."],
+  ["coined","세션 조어 → 표준어","논의 편의로 만든 표현. 팀 문서·투자자료에는 오른쪽 표준어를 쓰세요."]
+];
+
+const T = [
+/* ---------------- 플랫폼 ---------------- */
+{c:"plat",k:"웹게임 포털",e:"web game portal / game aggregator",d:"설치 없이 브라우저에서 실행되는 게임을 모아 광고로 수익화하는 사이트. Poki, CrazyGames, Y8, Kizi, Armor Games, Newgrounds, itch.io가 이 범주입니다."},
+{c:"plat",k:"H5 게임",e:"H5 游戏",src:"중화권",d:"중화권에서 HTML5 웹게임을 부르는 통칭. 중국계 자료나 계약서에서 H5라고만 적혀 있으면 HTML5 웹게임을 뜻합니다."},
+{c:"plat",k:"미니 프로그램 · 미니앱",e:"小程序 / Mini Program / Mini App",d:"호스트 앱 안에서 설치 없이 실행되는 서브 애플리케이션. 위챗이 만든 카테고리 명칭이고, 지금은 토스·라인·텔레그램 등도 같은 용어를 씁니다."},
+{c:"plat",k:"미니게임",e:"小游戏 / Mini Game",d:"미니 프로그램 중 게임 카테고리. 호스트 앱의 계정·결제·소셜 그래프를 그대로 상속받는 것이 일반 웹게임과의 결정적 차이입니다.",n:"논의에서 언급한 <b>위챗·더우인·토스 미니게임</b>이 전부 이 구조입니다. 우리가 만드는 것은 웹 포털이므로 이 상속이 없습니다."},
+{c:"plat",k:"서브패키지",e:"分包 / subpackage",src:"위챗",d:"메인 패키지 용량 상한을 넘기지 않도록 리소스를 분할해 필요할 때 내려받게 하는 미니게임 구조. 웹으로 치면 코드 스플리팅에 해당합니다."},
+{c:"plat",k:"슈퍼앱",e:"super app",d:"메시징·결제·커머스·콘텐츠를 한 앱에서 처리하며 서드파티 미니앱을 입점시키는 앱. 위챗, 알리페이, 그랩, 토스."},
+{c:"plat",k:"인스턴트 게임",e:"Instant Game",d:"설치 없이 메시징이나 피드 문맥 안에서 즉시 실행되는 게임. Facebook Instant Games가 만든 명칭이며 지금은 카테고리 일반명으로 쓰입니다."},
+{c:"plat",k:"텔레그램 미니앱",e:"Telegram Mini Apps",d:"텔레그램 채팅·봇 안에서 실행되는 웹앱 플랫폼. 최근 HTML5 게임의 실질적 배급 채널로 부상했습니다.",n:"소셜 그래프를 빌려오는 경로를 검토한다면 실제 후보에 들어갑니다."},
+{c:"plat",k:"디스코드 액티비티",e:"Discord Activities / Embedded App SDK",d:"디스코드 음성채널에서 여러 명이 함께 실행하는 임베드 웹앱. 기존 HTML5 게임을 비교적 적은 수정으로 올릴 수 있는 소셜 배급 경로입니다."},
+{c:"plat",k:"배포 카탈로그",e:"distribution catalog",d:"수천 개 HTML5 게임을 iframe 임베드 코드 형태로 제공하고 광고 수익을 나누는 중개 사업자. GameDistribution(Azerion), GameMonetize 등.",n:"초기 카탈로그를 빠르게 채우는 수단이지만 차별화 요소는 0입니다."},
+{c:"plat",k:"레브셰어",e:"revenue share / rev share",d:"게임 수익을 개발사와 플랫폼이 나누는 비율. 웹게임 포털은 광고 순매출 기준 50대 50 전후가 관행이고, 개발자가 직접 데려온 트래픽은 전액 지급하는 조항을 두기도 합니다."},
+{c:"plat",k:"사이트락 라이선스",e:"site-locked license",d:"지정한 도메인에서만 실행되도록 제한한 라이선스. 배포 카탈로그 계약의 기본 형태 중 하나입니다."},
+{c:"plat",k:"비독점 라이선스",e:"non-exclusive license",d:"같은 게임을 여러 포털에 동시 공급할 수 있는 계약. 협상력이 없는 후발 플랫폼이 카탈로그를 채울 때 쓰는 조건입니다."},
+{c:"plat",k:"인제스천",e:"ingestion",d:"외부 게임을 업로드받아 검수·변환·등록하는 파이프라인. 개발자 포털의 본체."},
+{c:"plat",k:"언블락드 게임",e:"unblocked games",d:"학교나 직장의 네트워크 차단을 우회해 접속하는 웹게임을 가리키는 영어권 검색 카테고리. 영어권 웹게임 검색 트래픽의 큰 축이며 대부분 미성년 트래픽입니다.",n:"13세 이상 타깃을 택하면 이 트래픽을 의도적으로 버리는 선택이 됩니다."},
+
+/* ---------------- 피드 ---------------- */
+{c:"feed",k:"피드 · FYP",e:"feed / For You Page",d:"알고리즘이 다음 콘텐츠를 결정해 밀어주는 화면. FYP는 틱톡이 대중화시킨 명칭입니다."},
+{c:"feed",k:"알고리즘 배급",e:"algorithmic distribution",d:"유저가 고르지 않고 시스템이 노출을 결정하는 배급 방식. 검색·팔로우 기반 배급의 반대편."},
+{c:"feed",k:"린백 · 린포워드",e:"lean-back / lean-forward",src:"미디어",d:"소비 자세를 가르는 미디어 업계 표준 구분. 린백은 수동적 소비(TV·피드), 린포워드는 능동적 탐색(검색·그리드 브라우징).",n:"Poki식 그리드 포털은 린포워드, 숏폼 피드는 린백입니다. 둘의 재미가 다르다는 논점을 이 한 쌍으로 표현할 수 있습니다."},
+{c:"feed",k:"디스커버리 서피스 · 진입점",e:"discovery surface / entry point",d:"유저가 콘텐츠를 처음 마주치는 지점. 앱 홈, 푸시, 검색 결과, 공유 링크, 채팅방."},
+{c:"feed",k:"콜드 스타트",e:"cold start",d:"유저나 아이템의 상호작용 데이터가 없어 추천이 동작하지 않는 초기 상태. 유저 콜드스타트와 아이템 콜드스타트로 구분합니다."},
+{c:"feed",k:"에디토리얼 큐레이션",e:"editorial curation",d:"사람이 직접 짠 노출 순서. 콜드 스타트 구간의 표준 해법이며, 데이터가 쌓인 뒤 알고리즘으로 전환합니다."},
+{c:"feed",k:"머천다이징",e:"merchandising",src:"스토어",d:"어떤 콘텐츠를 어느 자리에 얼마 동안 노출할지 정하는 운영 행위. 스토어·OTT 업계에서 큐레이션 운영을 부르는 말."},
+{c:"feed",k:"인벤토리",e:"inventory",d:"노출 가능한 콘텐츠 또는 광고 지면의 총량. 광고 맥락과 콘텐츠 맥락 모두에서 쓰입니다."},
+{c:"feed",k:"스크롤 스톱 · 썸 스톱",e:"scroll-stopping / thumb-stopping",src:"광고",d:"피드에서 손가락을 멈추게 하는 첫 1~3초의 힘. 광고 크리에이티브 업계에서 쓰는 표현."},
+{c:"feed",k:"드롭오프",e:"drop-off",d:"콘텐츠를 이탈하는 시점과 비율. 피드형 서비스의 가장 중요한 학습 신호입니다.",n:"몇 초에 스와이프했는지, 재시도를 몇 번 했는지가 나중 추천의 유일한 원료입니다."},
+{c:"feed",k:"완주율",e:"completion rate",d:"숏폼 영상의 핵심 지표. 게임에 대응시키면 목표 도달률 또는 세션 완료율이 됩니다."},
+{c:"feed",k:"프리로드 · 프리페치",e:"preload / prefetch",d:"다음에 필요할 리소스를 미리 받아두는 것. 숏폼에서 체감 속도를 만드는 유일한 장치입니다."},
+{c:"feed",k:"윈도잉 · 가상화",e:"windowing / virtualization",d:"무한 리스트에서 화면에 보이는 소수 아이템만 유지하고 나머지는 파괴하는 구현 기법. 메모리 상한을 지키는 표준 방식입니다.",n:"세션에서 말한 3슬롯 링버퍼의 정식 명칭이 이것입니다. iframe에 적용하면 <b>iframe 풀링</b>이라고 부릅니다."},
+{c:"feed",k:"오토플레이",e:"autoplay",d:"피드 전환 시 다음 콘텐츠를 자동 재생하는 것. 웹에서는 브라우저 자동재생 정책 때문에 소리가 제약됩니다."},
+
+/* ---------------- 웹 런타임 ---------------- */
+{c:"web",k:"HTML5 게임",e:"HTML5 game",d:"Canvas 또는 WebGL과 JS·WASM으로 브라우저에서 실행되는 게임의 통칭."},
+{c:"web",k:"WebGL · WebGL2 · WebGPU",e:"WebGL / WebGPU",src:"W3C",d:"브라우저 가속 그래픽 API. WebGPU가 차세대이며 아직 지원 범위가 고르지 않습니다."},
+{c:"web",k:"웹어셈블리",e:"WebAssembly / WASM",src:"W3C",d:"Unity와 Godot의 웹 빌드가 실제로 실행되는 바이트코드 포맷. 다운로드 용량의 상당 부분을 차지합니다."},
+{c:"web",k:"WebGL 컨텍스트 · 컨텍스트 손실",e:"WebGL context / context loss",d:"브라우저가 동시에 유지하는 WebGL 컨텍스트 수에는 상한이 있고, 넘기면 오래된 컨텍스트부터 강제 해제되며 webglcontextlost 이벤트가 발생합니다.",n:"게임 여러 개를 동시에 살려둘 수 없는 이유. 피드 프리로드 설계의 물리적 제약입니다."},
+{c:"web",k:"오프스크린 캔버스",e:"OffscreenCanvas",d:"워커 스레드에서 렌더링해 메인 스레드 부하를 줄이는 API."},
+{c:"web",k:"iframe 샌드박스",e:"iframe sandbox attribute",d:"임베드 문서의 스크립트·폼·팝업·최상위 이동 권한을 개별적으로 허용하는 HTML 표준 속성."},
+{c:"web",k:"동일 출처 정책 · 오리진 분리",e:"Same-Origin Policy / origin isolation",d:"서드파티 코드를 별도 도메인에 두어 세션 쿠키와 스토리지를 격리하는 원칙.",n:"게임을 서비스 도메인과 같은 오리진에 두면 게임 하나가 계정 시스템 전체를 뚫습니다."},
+{c:"web",k:"postMessage",e:"window.postMessage",d:"서로 다른 오리진 사이의 표준 통신 API. 포털 셸과 게임 iframe을 잇는 브리지의 기본."},
+{c:"web",k:"CSP",e:"Content Security Policy",d:"페이지가 로드할 수 있는 스크립트·리소스 출처를 제한하는 보안 헤더. 서드파티 게임이 임의 도메인을 호출하지 못하게 막는 수단입니다."},
+{c:"web",k:"CORS",e:"Cross-Origin Resource Sharing",d:"교차 출처 리소스 요청을 서버가 허용하는 표준 방식."},
+{c:"web",k:"COOP · COEP · 교차 출처 격리",e:"Cross-Origin Opener/Embedder Policy",d:"SharedArrayBuffer를 쓰려면 이 두 헤더로 교차 출처 격리 상태를 만들어야 합니다. Unity 멀티스레드 WebGL 빌드가 여기에 걸립니다."},
+{c:"web",k:"코어 웹 바이탈",e:"Core Web Vitals — LCP / INP / CLS",src:"Google",d:"구글이 정의한 웹 성능 지표. 최대 콘텐츠 페인트, 상호작용 응답성, 레이아웃 이동. INP는 2024년 3월 FID를 대체했습니다.",n:"SEO 진입점으로 쓸 게임 상세 페이지의 랭킹 요소이므로 피드가 아닌 쪽에서 관리 대상입니다."},
+{c:"web",k:"TTI · TTFB",e:"Time to Interactive / Time to First Byte",d:"조작 가능해질 때까지의 시간, 첫 바이트 도착까지의 시간. 로딩 성능의 표준 지표."},
+{c:"web",k:"코드 스플리팅 · 벤더 청크",e:"code splitting / vendor chunk",d:"공용 라이브러리를 별도 청크로 분리해 여러 페이지가 같은 캐시를 재사용하게 하는 웹 표준 기법.",n:"세션에서 논의한 <b>공용 엔진 런타임 캐싱</b>이 정확히 이 개념의 게임 런타임판입니다. 대외 문서에는 공유 런타임 청크라고 쓰는 편이 통합니다."},
+{c:"web",k:"캐시 버스팅 · 콘텐츠 해시",e:"cache busting / content hash",d:"파일 경로나 이름에 버전·해시를 넣어 무기한 캐싱과 즉시 롤백을 동시에 얻는 방식."},
+{c:"web",k:"immutable 캐시",e:"Cache-Control: immutable",d:"내용이 절대 바뀌지 않는다고 선언해 재검증 요청 자체를 없애는 캐시 지시자."},
+{c:"web",k:"에셋 번들 · 어드레서블",e:"Asset Bundle / Addressables",src:"Unity",d:"Unity의 리소스 분리·원격 로딩 시스템. 초기 다운로드 용량을 줄이는 표준 도구."},
+{c:"web",k:"자동재생 정책 · 사용자 활성화",e:"autoplay policy / user activation",d:"오디오는 사용자 제스처 이후에만 재생할 수 있고, AudioContext는 suspended 상태로 시작합니다. iOS에서 특히 엄격합니다.",n:"피드 자동 전환과 정면으로 충돌하는 지점. 셸이 게임별 AudioContext 재개 시점을 관리해야 합니다."},
+
+/* ---------------- PWA ---------------- */
+{c:"pwa",k:"PWA",e:"Progressive Web App",d:"설치·오프라인·푸시를 지원하는 웹앱 형태. 표준 기술의 조합이지 단일 규격이 아닙니다."},
+{c:"pwa",k:"웹 앱 매니페스트",e:"Web App Manifest",src:"W3C",d:"아이콘·이름·시작 URL·표시 모드를 정의하는 JSON. display: standalone이 브라우저 크롬을 제거합니다."},
+{c:"pwa",k:"서비스 워커 · 캐시 스토리지",e:"Service Worker / Cache Storage API",d:"네트워크 요청을 가로채 캐시에서 응답하는 백그라운드 스크립트와 그 저장소. 재방문 로딩을 사실상 즉시로 만드는 장치."},
+{c:"pwa",k:"캐시 전략",e:"cache-first / network-first / stale-while-revalidate",src:"Workbox",d:"요청 유형별 캐시 우선순위 패턴. 구글 Workbox가 이름을 표준화했습니다. 불변 에셋은 cache-first, 셸 UI는 stale-while-revalidate가 정석."},
+{c:"pwa",k:"홈 화면 추가 · 설치 프롬프트",e:"Add to Home Screen / beforeinstallprompt",d:"안드로이드 크롬은 설치 프롬프트를 코드로 띄울 수 있지만, iOS Safari에는 이 API가 없고 공유 시트를 통한 수동 경로뿐입니다."},
+{c:"pwa",k:"WebAPK",e:"WebAPK",src:"Android",d:"안드로이드 크롬이 PWA를 실제 APK로 감싸 설치해주는 방식. 안드로이드 설치 경험이 iOS보다 나은 이유."},
+{c:"pwa",k:"웹 푸시",e:"Web Push / VAPID",d:"브라우저 푸시 알림 표준. iOS는 16.4부터 지원하되 홈 화면에 추가된 웹앱에서만 동작합니다.",n:"설치가 선행 조건이므로 iOS에서는 도달 범위가 구조적으로 좁아집니다."},
+{c:"pwa",k:"스토리지 할당량 · 축출",e:"storage quota / eviction",d:"브라우저는 용량 압박 시 오리진 데이터를 통째로 삭제할 수 있습니다. navigator.storage.persist()로 완화를 요청할 수 있으나 보장은 아닙니다."},
+{c:"pwa",k:"ITP",e:"Intelligent Tracking Prevention",src:"Safari",d:"사파리의 추적 방지 기능. 스크립트가 기록한 스토리지의 수명을 제한하므로 게스트 진행도 저장이 사라질 수 있습니다."},
+{c:"pwa",k:"네이티브 래퍼 · 하이브리드 앱",e:"WebView wrapper — Capacitor / TWA",d:"웹 코드를 네이티브 앱으로 감싸는 방식. 안드로이드는 TWA(Trusted Web Activity), 크로스플랫폼은 Capacitor가 표준 선택지."},
+{c:"pwa",k:"최소 기능성 조항",e:"Minimum Functionality (App Store 4.2)",src:"Apple",d:"웹사이트를 단순히 감싼 앱의 대표적 반려 사유. 래퍼 앱을 낼 때 가장 먼저 부딪히는 조항입니다."},
+{c:"pwa",k:"미니앱·미니게임 조항",e:"App Store Review Guideline 4.7",src:"Apple",d:"앱 안에 미니앱·미니게임·스트리밍 게임을 담을 때 적용되는 별도 조항. 내부 콘텐츠의 가이드라인 준수 책임을 호스트 앱 개발사가 집니다.",n:"카탈로그가 서드파티 게임이면 책임 범위가 넓어집니다. 개정이 잦으니 착수 시점 원문 확인이 필요합니다."},
+
+/* ---------------- SDK ---------------- */
+{c:"sdk",k:"플랫폼 SDK",e:"platform SDK",d:"게임이 포털의 광고·지표·저장 기능을 호출하는 자바스크립트 라이브러리. Poki SDK, CrazySDK, Yandex Games SDK, GameDistribution SDK 등."},
+{c:"sdk",k:"라이프사이클 이벤트",e:"lifecycle events",d:"init, gameLoadingStart/Finished, gameplayStart/Stop처럼 게임 진행 상태를 플랫폼에 알리는 호출. 광고를 언제 끼울지와 지표 산정의 근거가 됩니다.",n:"핵심 규칙은 gameplayStart를 로딩 완료가 아니라 <b>실제 조작이 시작되는 순간</b>에 호출하는 것입니다."},
+{c:"sdk",k:"커머셜 브레이크 · 리워드 브레이크",e:"commercial break / rewarded break",d:"전면광고와 보상형 광고를 요청하는 SDK 호출. 보상형은 유저의 명시적 선택이 전제입니다."},
+{c:"sdk",k:"H5 게임 광고 API",e:"Google H5 Games Ads — adBreak() / adConfig()",src:"Google",d:"구글이 정의한 웹게임 광고 배치 API. 이 분야에서 사실상 표준 시그니처 역할을 합니다."},
+{c:"sdk",k:"shim · 폴리필 · 어댑터",e:"shim / polyfill / adapter",d:"다른 플랫폼용 SDK 호출을 우리 SDK로 갈아끼우는 호환 계층. shim은 기존 API를 가로채는 층, 폴리필은 없는 표준 기능을 채우는 층입니다.",n:"타 플랫폼용 빌드를 코드 수정 없이 받으려는 전략이 여기에 해당합니다."},
+{c:"sdk",k:"딥링크",e:"deep link",d:"앱이나 게임의 특정 상태를 바로 여는 링크. 파라미터로 도전 점수나 모드를 전달합니다."},
+{c:"sdk",k:"디퍼드 딥링크",e:"deferred deep link",d:"설치 이후까지 링크 맥락을 유지해, 설치를 거쳐 들어온 유저도 원래 목적지로 보내는 방식."},
+{c:"sdk",k:"Web Share API",e:"navigator.share",src:"W3C",d:"OS 네이티브 공유 시트를 호출하는 표준 API. 모바일 공유 전환율이 커스텀 공유 UI보다 높습니다."},
+{c:"sdk",k:"오픈 그래프 태그",e:"Open Graph / Twitter Card",d:"공유 링크의 미리보기 이미지·제목·설명을 지정하는 메타 태그.",n:"공유 링크 루프를 획득 채널로 쓴다면 점수를 그려 넣은 동적 OG 이미지가 클릭률을 좌우합니다."},
+{c:"sdk",k:"자동 검수기",e:"automated validation / inspector",d:"업로드 시점에 용량·로딩 시간·SDK 호출 순서·외부 요청 여부를 자동 검사하는 도구. 심사 인력 없이 빠른 심사 SLA를 지키는 유일한 방법입니다."},
+
+/* ---------------- 광고 ---------------- */
+{c:"ads",k:"인터스티셜",e:"interstitial",d:"화면 전체를 덮는 전면광고. 콘텐츠 전환 지점에 넣는 것이 원칙이며 플레이 도중 삽입은 정책 위반이 되기 쉽습니다."},
+{c:"ads",k:"리워드 광고",e:"rewarded video",d:"유저가 자발적으로 시청하고 보상을 받는 형식. 광고 형식 중 eCPM이 가장 높습니다."},
+{c:"ads",k:"리워디드 인터스티셜",e:"rewarded interstitial",d:"보상은 주되 시청 선택 시점을 전면광고처럼 배치한 중간 형식."},
+{c:"ads",k:"프리롤 · 미드롤",e:"pre-roll / mid-roll",d:"콘텐츠 시작 전 광고, 콘텐츠 중간 광고. 웹게임에서는 로딩 중 프리롤이 흔합니다."},
+{c:"ads",k:"eCPM",e:"effective CPM",d:"노출 1,000회당 실질 수익. 광고 수익성의 기본 단위이며 지역·연령·형식에 따라 자릿수 단위로 갈립니다."},
+{c:"ads",k:"필레이트",e:"fill rate",d:"광고 요청 대비 실제로 광고가 채워진 비율. 신규 매체는 낮게 시작합니다."},
+{c:"ads",k:"임프레션 · 뷰어빌리티",e:"impression / viewability",src:"IAB",d:"노출 횟수와 실제로 보였다고 인정되는 노출의 비율. IAB 기준은 디스플레이의 경우 픽셀 50%가 1초 이상 노출입니다."},
+{c:"ads",k:"SSP · DSP · 애드 익스체인지",e:"SSP / DSP / ad exchange",d:"매체 측 판매 플랫폼, 광고주 측 구매 플랫폼, 둘을 잇는 거래소. 프로그래매틱 광고의 기본 3축."},
+{c:"ads",k:"헤더 비딩",e:"header bidding / Prebid.js",d:"여러 수요처를 동시에 경매에 붙여 최고가를 받는 방식. 순차 호출 방식인 워터폴의 대안이며 지금의 표준입니다."},
+{c:"ads",k:"미디에이션 · 워터폴 · 플로어",e:"mediation / waterfall / floor price",d:"여러 광고 네트워크를 관리하는 계층, 우선순위대로 순차 호출하는 옛 방식, 그리고 최저 수용 단가."},
+{c:"ads",k:"VAST · VPAID · IMA SDK",e:"VAST / VPAID / IMA SDK",src:"IAB·Google",d:"동영상 광고 응답 규격과 상호작용 규격, 그리고 구글의 재생 SDK."},
+{c:"ads",k:"ads.txt · sellers.json",e:"ads.txt / app-ads.txt / sellers.json",src:"IAB",d:"누가 이 매체의 지면을 팔 권한이 있는지 공시하는 표준 파일. 프리미엄 수요를 받으려면 사실상 필수입니다."},
+{c:"ads",k:"무효 트래픽 · 애드 프로드",e:"IVT — Invalid Traffic / ad fraud",d:"봇·중복·유도 클릭 등 무효 노출. 적발되면 수익 환수와 계정 정지로 이어집니다.",n:"광고 계정 정지는 수익 파이프라인 자체가 끊기는 사고라 저작권 리스크보다 실질적 타격이 큽니다."},
+{c:"ads",k:"MFA",e:"Made for Advertising",d:"광고 노출만을 목적으로 만든 저품질 사이트 분류. 프로그래매틱 바이어의 배제 목록에 오르면 단가가 붕괴합니다."},
+{c:"ads",k:"CMP · IAB TCF",e:"Consent Management Platform / Transparency & Consent Framework",src:"IAB",d:"유럽에서 광고 목적 개인정보 동의를 수집·전달하는 표준 프레임워크와 그 구현 도구."},
+{c:"ads",k:"비개인화 광고 · 아동 대상 처리",e:"NPA / child-directed treatment (TFCD, TFUA)",d:"아동 대상으로 표시하면 개인화가 차단되어 eCPM이 크게 떨어집니다. 카탈로그 구성이 이 설정을 뒷받침해야 합니다.",n:"타깃 연령대는 수익화 상한을 결정하므로 콘텐츠 큐레이션 단계에서 확정해야 하는 항목입니다."},
+{c:"ads",k:"IAP",e:"In-App Purchase",d:"앱 내 결제. 웹에서는 스토어를 거치지 않지만 전환율이 앱보다 크게 낮습니다."},
+{c:"ads",k:"D2C 웹샵",e:"direct-to-consumer webshop",d:"스토어 수수료를 피해 웹에서 직접 결제받는 상점. 최근 모바일 게임 업계의 표준 화두입니다."},
+{c:"ads",k:"오퍼월",e:"offerwall",d:"광고 시청이나 제휴 행동을 하면 재화를 주는 보상 목록형 지면."},
+
+/* ---------------- 지표 ---------------- */
+{c:"metric",k:"DAU · WAU · MAU · 스티키니스",e:"DAU / WAU / MAU / stickiness",d:"일·주·월 활성 유저와 그 비율(DAU÷MAU). 스티키니스는 얼마나 자주 돌아오는지를 한 숫자로 보여줍니다."},
+{c:"metric",k:"리텐션",e:"retention — D1 / D7 / D30",d:"설치·첫 방문 이후 특정 일자에 돌아온 비율. 특정일 기준의 N-day 리텐션과 이후 언제든 포함하는 롤링 리텐션은 값이 다르므로 정의를 명시해야 합니다.",n:"초기 6개월 성공 지표를 매출 대신 여기에 두는 것이 논의된 방향이었습니다."},
+{c:"metric",k:"세션 · 세션 길이",e:"session / session length",d:"연속 이용 단위와 그 지속 시간. 숏폼에서는 세션당 소비한 아이템 수가 함께 따라붙습니다."},
+{c:"metric",k:"이탈률",e:"bounce rate",d:"한 페이지만 보고 떠난 방문 비율. SEO 진입 페이지의 품질 신호."},
+{c:"metric",k:"퍼널 · 전환율",e:"funnel / CVR",d:"단계별 통과 비율. 이 제품에서는 방문 → 첫 플레이 → 재플레이 → 설치 → 로그인이 주요 퍼널입니다."},
+{c:"metric",k:"ARPU · ARPDAU",e:"ARPU / ARPDAU",d:"유저당 평균 매출, 일간 활성 유저당 평균 매출. 광고 수익 모델에서는 ARPDAU가 실무 기준입니다."},
+{c:"metric",k:"LTV · CAC · ROAS",e:"LTV / CAC / ROAS",d:"유저 생애가치, 획득 비용, 광고 지출 대비 수익률. 유료 획득의 성립 여부를 결정합니다."},
+{c:"metric",k:"페이백 기간",e:"payback period",d:"획득 비용을 회수하는 데 걸리는 기간. 광고 단일 수익 구조에서는 길어지기 쉽습니다."},
+{c:"metric",k:"K팩터 · 바이럴 계수",e:"K-factor / viral coefficient",d:"기존 유저 1명이 데려오는 신규 유저 수. 1을 넘으면 자가 성장합니다.",n:"공유 링크 루프를 획득 엔진으로 삼는다면 이 값이 핵심 관리 지표가 됩니다."},
+{c:"metric",k:"그로스 루프 · 플라이휠",e:"growth loop / flywheel",d:"산출물이 다시 입력으로 돌아오는 순환 구조. 퍼널이 선형인 데 반해 루프는 재투입됩니다."},
+{c:"metric",k:"노스 스타 지표",e:"North Star Metric",d:"팀 전체가 한 방향을 보게 만드는 단일 대표 지표."},
+{c:"metric",k:"코호트 분석",e:"cohort analysis",d:"유입 시점이나 속성이 같은 집단을 묶어 시간에 따른 변화를 비교하는 분석."},
+
+/* ---------------- 획득 ---------------- */
+{c:"seo",k:"오운드 · 언드 · 페이드 미디어",e:"owned / earned / paid media",src:"마케팅",d:"자사가 소유한 채널, 자연 발생한 노출, 돈으로 산 노출. 획득 전략을 정리할 때의 표준 3분류입니다.",n:"세션에서 말한 <b>배급 표면 확보</b>는 정확히 오운드 채널 확보를 뜻합니다. 앱 아이콘과 푸시가 웹 서비스가 가질 수 있는 몇 안 되는 오운드 채널입니다."},
+{c:"seo",k:"롱테일 키워드",e:"long-tail keyword",d:"검색량은 적지만 경쟁이 약하고 의도가 뚜렷한 검색어. 게임명 조합 검색이 웹게임 포털 트래픽의 큰 축입니다."},
+{c:"seo",k:"검색 의도",e:"search intent",d:"검색어 뒤에 있는 목적. 정보형·탐색형·거래형으로 나눕니다."},
+{c:"seo",k:"도메인 권위 · 백링크",e:"Domain Authority / backlink",d:"외부 링크로 축적되는 도메인 신뢰도. DA는 Moz의 상용 추정 지표이지 구글 공식 지표가 아닙니다.",n:"후발 주자가 영어권에서 정면승부하기 어려운 이유가 여기 있습니다. 시간과 자본이 필요한 축적형 자산입니다."},
+{c:"seo",k:"색인 · 크롤 예산 · 정규 URL",e:"indexing / crawl budget / canonical",d:"검색엔진이 페이지를 수집하고 대표 URL을 정하는 과정. 피드 UI는 색인될 페이지가 없다는 것이 구조적 약점입니다."},
+{c:"seo",k:"구조화 데이터",e:"structured data / schema.org",d:"검색엔진이 이해하도록 페이지 의미를 표기하는 마크업. 게임 상세 페이지에는 VideoGame 타입이 대응합니다."},
+{c:"seo",k:"SSR · SSG · ISR",e:"server-side / static / incremental static rendering",d:"서버 렌더링, 빌드 시점 정적 생성, 점진적 재생성. 카탈로그가 수백 개 규모면 SSG와 ISR 조합이 표준 선택입니다."},
+{c:"seo",k:"hreflang",e:"hreflang",d:"같은 콘텐츠의 언어·지역별 버전을 검색엔진에 알리는 태그. 다국어 전개 시 필수."},
+{c:"seo",k:"커뮤니티 시딩",e:"community seeding",d:"레딧·디스코드처럼 타깃이 이미 모인 커뮤니티에 콘텐츠를 심어 초기 유저를 만드는 방식. 영어권 웹게임이 실제로 발견되는 경로입니다."},
+{c:"seo",k:"크로스 프로모션",e:"cross-promotion",d:"자사 게임·서비스 간 상호 노출로 트래픽을 돌리는 것. 비용 없이 쓸 수 있는 대표적 획득 수단."},
+{c:"seo",k:"어트리뷰션 · UTM · MMP",e:"attribution / UTM parameters / Mobile Measurement Partner",d:"유입 출처를 식별하는 체계. 웹은 UTM, 앱은 AppsFlyer·Adjust 같은 MMP가 표준입니다."},
+
+/* ---------------- 콘텐츠 ---------------- */
+{c:"content",k:"하이퍼캐주얼",e:"hypercasual",d:"1~2분 세션, 튜토리얼 없이 즉시 이해되는 조작, 광고 수익 중심의 장르. 개별 게임 수명이 짧아 신작을 계속 찍어내는 구조를 전제합니다."},
+{c:"content",k:"하이브리드캐주얼",e:"hybrid-casual",d:"하이퍼캐주얼의 즉시성에 메타 진행과 IAP를 결합한 형태. 2022~2023년 이후 캐주얼 게임 업계의 주류 용어입니다.",n:"짧은 세션과 리텐션을 동시에 잡으려면 결국 이 방향의 메타 설계가 필요해집니다."},
+{c:"content",k:"엔드리스 러너 · 아케이드",e:"endless runner / arcade",d:"끝이 없고 점수로 겨루는 형식. 목표 점수만 바꿔도 새로운 도전이 만들어져 콘텐츠 재생성이 쉽습니다."},
+{c:"content",k:".io 게임",e:".io games",d:"브라우저에서 바로 접속하는 실시간 멀티플레이 캐주얼 장르. Agar.io 이후 하나의 카테고리로 굳었습니다."},
+{c:"content",k:"코어 루프 · 메타 게임",e:"core loop / metagame",d:"한 판 안에서 반복되는 행동 사이클과, 판 밖에서 누적되는 성장·수집·경쟁 층."},
+{c:"content",k:"난이도 곡선",e:"difficulty curve",d:"플레이 진행에 따른 난이도 상승 설계. 숏폼에서는 첫 10초 안에 성공 경험이 나와야 합니다."},
+{c:"content",k:"플레이어블 애드",e:"playable ad",d:"광고 안에서 직접 조작해보게 하는 형식. 하이퍼캐주얼 스튜디오가 아이디어 검증에 쓰는 표준 도구입니다."},
+{c:"content",k:"CPI 테스트",e:"CPI test",d:"프로토타입 단계에서 광고를 돌려 설치 단가를 측정하고, 기준 미달이면 폐기하는 검증 방식. 캐주얼 게임 제작 파이프라인의 표준 관문입니다.",n:"자체 제작 게임을 계속 찍어내야 한다면, 무엇을 살리고 버릴지 정하는 이 관문이 필요합니다."},
+{c:"content",k:"소프트 런치",e:"soft launch",d:"일부 국가나 일부 트래픽에만 먼저 출시해 지표를 확인하는 단계."},
+{c:"content",k:"콘텐츠 트레드밀",e:"content treadmill",d:"콘텐츠가 빠르게 소비되어 계속 새로 공급해야만 유지되는 구조. 하이퍼캐주얼과 피드형 서비스가 공통으로 안는 비용입니다."},
+{c:"content",k:"히트 주도형 사업",e:"hit-driven business",d:"소수의 성공작이 전체 수익의 대부분을 만드는 구조. 다작과 빠른 폐기를 전제로 한 운영이 필요합니다."},
+
+/* ---------------- 계정 ---------------- */
+{c:"acct",k:"게스트 플레이 · 익명 인증",e:"guest play / anonymous authentication",d:"로그인 없이 시작하고 나중에 계정을 붙이는 방식. 진입 마찰을 없애는 표준 패턴입니다."},
+{c:"acct",k:"계정 연동",e:"account linking",d:"익명 계정에 쌓인 진행도를 소셜 로그인 계정으로 승격시키는 과정. 데이터 유실 없이 처리하는 것이 관건입니다."},
+{c:"acct",k:"OAuth 2.0 · OIDC",e:"OAuth 2.0 / OpenID Connect",d:"위임 인가 규격과 그 위에 얹은 인증 규격. 구글·디스코드·카카오 로그인이 모두 이 계열입니다."},
+{c:"acct",k:"소셜 그래프",e:"social graph",d:"유저 간 관계 데이터. 직접 만들기 가장 어렵고, 보통은 외부 플랫폼에서 빌려옵니다.",n:"빌릴 곳이 없으면 친구 랭킹 기반 설계 자체가 성립하지 않습니다. 초기 설계에서 가장 자주 과소평가되는 제약입니다."},
+{c:"acct",k:"리더보드",e:"leaderboard",d:"점수 순위표. 전체·친구·시즌 단위로 나누며, 시즌 리셋은 상위권 고착을 푸는 표준 장치입니다."},
+{c:"acct",k:"서버 권위 구조",e:"server-authoritative",d:"클라이언트가 보낸 결과를 신뢰하지 않고 서버가 검증하거나 직접 판정하는 구조. 점수 위조를 막는 유일한 근본 대책입니다."},
+{c:"acct",k:"리플레이 검증 · 결정론적 시뮬레이션",e:"replay validation / deterministic simulation",d:"입력 기록을 서버에서 재생해 점수를 재현하는 검증 방식. 완전한 서버 권위가 불가능한 캐주얼 게임의 현실적 대안입니다."},
+{c:"acct",k:"레이트 리미팅 · 봇 방어",e:"rate limiting / bot mitigation",d:"요청 빈도 제한과 자동화 트래픽 차단. 리워드 광고 어뷰징 대응의 기본 층."},
+
+/* ---------------- 규제 ---------------- */
+{c:"law",k:"COPPA",e:"Children's Online Privacy Protection Act",src:"US",d:"미국의 아동 온라인 프라이버시 보호법. 만 13세 미만 대상 서비스에 개인정보 수집·개인화 광고 제한을 부과합니다."},
+{c:"law",k:"GDPR · 아동 조항",e:"GDPR / GDPR-K",src:"EU",d:"유럽 일반 개인정보보호규정. 아동 동의 연령은 회원국별로 13~16세로 다릅니다."},
+{c:"law",k:"디지털서비스법",e:"DSA — Digital Services Act",src:"EU",d:"유럽의 플랫폼 규제. 신고 처리 절차, 추천 시스템 투명성, 미성년자 대상 프로파일링 광고 금지 등을 규정합니다.",n:"서드파티 게임을 배급하는 순간 신고·삭제 절차를 갖춘 사업자가 됩니다."},
+{c:"law",k:"개인정보보호법",e:"개인정보 보호법",src:"국내",d:"국내 개인정보 규율의 기본법. 만 14세 미만 아동의 개인정보 처리에는 법정대리인 동의가 필요합니다. 미국의 13세 기준과 다릅니다."},
+{c:"law",k:"게임물 등급분류",e:"게임산업진흥에 관한 법률",src:"국내",d:"국내에 게임물을 유통하려면 게임물관리위원회의 등급분류를 받거나 자체등급분류사업자를 통해 분류해야 합니다.",n:"국내 서비스를 한다면 <b>플랫폼 사업자로서</b> 반드시 검토할 항목입니다. 해외 웹게임 포털을 벤치마킹할 때 가장 자주 빠지는 국내 고유 제약입니다."},
+{c:"law",k:"자체등급분류사업자",e:"자체등급분류사업자",src:"국내",d:"일정 요건을 갖추고 지정을 받아 자사 플랫폼 유통 게임물의 등급을 직접 분류할 수 있는 사업자. 오픈마켓형 플랫폼이 취하는 경로입니다."},
+{c:"law",k:"청소년보호법",e:"청소년보호법",src:"국내",d:"청소년 유해매체물 표시와 이용 제한을 규정. 카탈로그 필터링 기준에 반영해야 합니다."},
+{c:"law",k:"저작권 침해 통지·삭제",e:"DMCA notice and takedown",d:"권리자 통지를 받아 콘텐츠를 삭제하는 절차. 게임별 라이선스 근거를 처음부터 문서로 남겨야 대응할 수 있습니다."},
+{c:"law",k:"트러스트 앤 세이프티",e:"Trust & Safety",d:"콘텐츠 모더레이션, 신고 처리, 이용자 제재를 다루는 조직·프로세스의 업계 명칭."},
+
+/* ---------------- 데이터 ---------------- */
+{c:"data",k:"이벤트 트래킹 · 트래킹 플랜",e:"event tracking / tracking plan",d:"어떤 행동을 어떤 이름과 속성으로 기록할지 정한 문서와 그 구현. 나중에 소급 수집이 불가능하므로 서비스 첫날부터 필요합니다."},
+{c:"data",k:"이벤트 택소노미",e:"event taxonomy / naming convention",d:"이벤트 이름과 속성의 체계. 여기가 무너지면 이후 모든 분석이 무너집니다."},
+{c:"data",k:"클릭스트림",e:"clickstream",d:"유저 행동을 시간순으로 기록한 원천 로그."},
+{c:"data",k:"컬럼너 분석 DB",e:"columnar analytics database",d:"대량 이벤트 집계에 최적화된 저장 방식. ClickHouse, BigQuery, Snowflake가 대표적입니다."},
+{c:"data",k:"제품 분석 도구",e:"product analytics",d:"퍼널·리텐션·코호트를 다루는 분석 SaaS. Amplitude, Mixpanel, GA4."},
+{c:"data",k:"A/B 테스트 · 홀드아웃",e:"A/B test / holdout",d:"무작위 분할 실험과, 비교를 위해 변경을 적용하지 않고 남겨두는 집단."},
+{c:"data",k:"최소 검출 효과",e:"MDE — Minimum Detectable Effect",d:"실험이 통계적으로 잡아낼 수 있는 최소 변화폭. 트래픽이 적으면 작은 개선은 검증 자체가 불가능합니다.",n:"초기 유저 규모에서는 A/B 테스트가 사실상 작동하지 않는다는 뜻이기도 합니다."},
+{c:"data",k:"피처 플래그 · 카나리 배포",e:"feature flag / canary release",d:"코드 배포와 기능 노출을 분리하고, 일부 트래픽에만 먼저 적용해보는 방식."},
+{c:"data",k:"라이브옵스",e:"LiveOps",d:"출시 후 이벤트·시즌·업데이트로 서비스를 운영하는 활동 전반. 데일리 챌린지, 시즌, 배틀패스가 대표 장치입니다."},
+
+/* ---------------- 조어 ---------------- */
+{c:"coined",k:"무의도 진입 표면",e:"세션 조어",w:"린백 소비 · 디스커버리 서피스 · 오운드 채널",d:"유저가 특정 목적 없이 콘텐츠를 마주치는 지점을 가리키려고 만든 말이었습니다. 개념 자체는 표준어로 충분히 표현됩니다. 소비 자세를 말할 때는 린백, 노출 지점을 말할 때는 디스커버리 서피스, 그 지점을 소유했다는 뜻이면 오운드 채널이 정확합니다."},
+{c:"coined",k:"배급 표면 확보 장치",e:"세션 조어",w:"오운드 채널 확보",d:"PWA 설치와 푸시를 이렇게 불렀습니다. 마케팅 표준 분류인 오운드·언드·페이드 미디어를 그대로 쓰면 외부에서도 바로 통합니다."},
+{c:"coined",k:"게임 × 컨텍스트 피드 · 스코어 단위 피드",e:"세션 조어",w:"챌린지 단위 피드 구성",d:"피드 아이템을 게임이 아니라 도전 과제 단위로 잡자는 아이디어였습니다. 정착된 명칭이 없으므로 문서에는 <b>피드의 콘텐츠 유닛을 게임이 아니라 챌린지로 정의한다</b>고 풀어 쓰는 편이 오해가 없습니다."},
+{c:"coined",k:"Tier A · Tier B 카탈로그",e:"세션 조어",w:"피처링 적격 요건 · 퍼스트파티/서드파티 카탈로그",d:"피드에 노출될 자격을 갖춘 게임과 그리드 전용 게임을 나눈 구분이었습니다. 스토어 업계 표현으로는 적격 요건(eligibility criteria)이고, 공급원 기준이면 퍼스트파티·서드파티 구분이 통용됩니다."},
+{c:"coined",k:"공용 엔진 런타임 캐싱",e:"세션 조어",w:"공유 런타임 청크 · 코드 스플리팅",d:"같은 엔진 버전을 쓰는 게임들이 런타임을 한 번만 내려받아 공유하자는 설계였습니다. 웹 표준 어휘로는 벤더 청크 분리와 공유 의존성 캐싱이며, 이렇게 부르면 웹 개발자에게 설명이 필요 없습니다."},
+{c:"coined",k:"3슬롯 링버퍼",e:"세션 조어",w:"윈도잉 · iframe 풀링",d:"이전·현재·다음 게임만 살려두고 나머지를 파괴하는 구조를 가리켰습니다. 프런트엔드에서는 윈도잉 또는 가상화가 정식 명칭이고, iframe에 적용한 형태는 iframe 풀링이라고 부릅니다."},
+{c:"coined",k:"TTFP",e:"세션 조어 (Time To First Play)",w:"TTI · 자체 정의 지표로 선언",d:"첫 플레이까지 걸린 시간을 뜻했습니다. 이 약어는 업계에 정착돼 있지 않으므로, 표준 지표인 TTI를 쓰거나 <b>측정 시작점과 종료점을 명시한 자체 지표</b>로 선언하고 사용해야 합니다. 정의 없이 약어만 쓰면 팀마다 다르게 해석합니다."},
+{c:"coined",k:"러닝머신",e:"세션 조어",w:"콘텐츠 트레드밀 · 히트 주도형 사업",d:"신작을 계속 만들어야만 유지되는 구조를 이렇게 표현했습니다. 영어권에서는 content treadmill이 그대로 쓰이며, 사업 구조를 말할 때는 hit-driven business가 정확합니다."},
+{c:"coined",k:"트래픽 공장",e:"세션 조어",w:"획득 채널 · 오가닉 트래픽 자산",d:"Poki의 검색 유입 규모를 비유한 표현이었습니다. 문서에는 오가닉 트래픽 또는 획득 채널이라고 쓰는 편이 낫습니다."}
+];
+
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// 설명 안의 <b>는 의도된 강조이므로 별도 처리
+const rich = s => String(s).replace(/&/g,"&amp;").replace(/<(?!\/?b>)/g,"&lt;");
+
+const main = document.getElementById("main");
+const toc = document.getElementById("toc");
+const empty = document.getElementById("empty");
+
+CATS.forEach(([id, name, note]) => {
+  const n = T.filter(t => t.c === id).length;
+  const a = document.createElement("a");
+  a.href = "#s-" + id;
+  if (id === "coined") a.className = "coin";
+  a.innerHTML = esc(name) + '<span class="n">' + n + "</span>";
+  toc.appendChild(a);
+
+  const sec = document.createElement("section");
+  sec.id = "s-" + id;
+  sec.dataset.cat = id;
+  const rows = T.filter(t => t.c === id).map(t => {
+    const coined = !!t.w;
+    return '<article class="row' + (coined ? " coined" : "") + '" data-s="' +
+      esc((t.k + " " + t.e + " " + t.d + " " + (t.n||"") + " " + (t.w||"")).toLowerCase()) + '">' +
+      '<div class="row-head"><span class="term">' + esc(t.k) + '</span>' +
+      '<span class="en">' + esc(t.e) + '</span>' +
+      (t.src ? '<span class="src">' + esc(t.src) + '</span>' : '') +
+      '</div>' +
+      '<p class="def">' + rich(t.d) + '</p>' +
+      (t.w ? '<p class="swap"><span class="lbl">대체어</span><b>' + esc(t.w) + '</b></p>' : '') +
+      (t.n ? '<p class="note">' + rich(t.n) + '</p>' : '') +
+      '</article>';
+  }).join("");
+  sec.innerHTML = '<div class="sec-head"><h2>' + esc(name) + '</h2><span class="sec-n">' + n + '</span></div>' +
+    '<p class="sec-note">' + esc(note) + '</p><div class="rows">' + rows + '</div>';
+  main.appendChild(sec);
+});
+
+const q = document.getElementById("q");
+const onlyCoined = document.getElementById("onlyCoined");
+const coinToggle = document.getElementById("coinToggle");
+const countEl = document.getElementById("count");
+
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  const co = onlyCoined.checked;
+  coinToggle.classList.toggle("on", co);
+  let shown = 0;
+  document.querySelectorAll("section").forEach(sec => {
+    let visible = 0;
+    sec.querySelectorAll(".row").forEach(row => {
+      const okText = !term || row.dataset.s.includes(term);
+      const okCoin = !co || row.classList.contains("coined");
+      const ok = okText && okCoin;
+      row.hidden = !ok;
+      if (ok) visible++;
+    });
+    sec.hidden = visible === 0;
+    shown += visible;
+  });
+  countEl.textContent = shown + " / " + T.length + "개 용어";
+  empty.style.display = shown === 0 ? "block" : "none";
+}
+q.addEventListener("input", apply);
+onlyCoined.addEventListener("change", apply);
+apply();
+</script>
+
+</body></html>
