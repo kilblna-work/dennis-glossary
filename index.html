@@ -6,14 +6,12 @@
   <meta name="description" content="숏폼 게임 플랫폼, 서비스 구축 네트워크, 마케팅과 사업 전략을 위한 분야별 용어집.">
   <meta name="color-scheme" content="light dark">
   <title>용어집 모음 · Dennis Glossary</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" crossorigin>
   <style>
     :root {
       --paper: #f5f4ef;
       --ink: #202a35;
-      --muted: #626b74;
+      --muted: #46515d;
       --line: #d4d7d5;
       --accent: #244c67;
       --wash: #eaece6;
@@ -24,13 +22,17 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif;
+      font-family: "Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; }
     .wrap { max-width: 1120px; margin: auto; padding: 0 48px; }
     .masthead {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
@@ -38,11 +40,11 @@
       border-bottom: 1px solid var(--ink);
     }
     .brand, .edition, .eyebrow, .number, .category, .footer-note {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
+      font-family: "Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,sans-serif;
+      font-size: 13px;
       letter-spacing: .08em;
     }
-    .brand { font-weight: 500; font-size: 12px; }
+    .brand { font-weight: 600; font-size: 14px; }
     .edition { color: var(--muted); }
     .intro {
       display: grid;
@@ -53,15 +55,15 @@
     }
     .eyebrow { color: var(--label); margin: 0 0 21px; }
     h1 {
-      font-family: "Noto Serif KR", "Batang", serif;
+      font-family: "Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,sans-serif;
       font-size: clamp(36px, 5.5vw, 58px);
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.4;
-      letter-spacing: -.055em;
+      letter-spacing: -.025em;
       margin: 0;
       word-break: keep-all;
     }
-    .intro-copy { color: var(--muted); font-size: 15px; line-height: 1.9; margin: 0 0 6px; word-break: keep-all; }
+    .intro-copy { color: var(--muted); font-size: 16px; line-height: 1.75; margin: 0 0 6px; word-break: keep-all; }
     .section-heading {
       display: flex;
       justify-content: space-between;
@@ -69,8 +71,8 @@
       padding: 0 0 14px;
       border-bottom: 1px solid var(--ink);
     }
-    .section-heading h2 { font-size: 13px; font-weight: 500; margin: 0; }
-    .section-heading span { color: var(--muted); font-size: 12px; }
+    .section-heading h2 { font-size: 14px; font-weight: 600; margin: 0; }
+    .section-heading span { color: var(--muted); font-size: 14px; }
     .collection { list-style: none; padding: 0; margin: 0; }
     .entry {
       display: grid;
@@ -84,11 +86,11 @@
     }
     .entry:hover { background: var(--wash); padding-left: 18px; }
     .entry:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-    .number { color: var(--label); padding-top: 3px; font-size: 13px; }
-    .category { display: block; color: var(--muted); margin-bottom: 9px; font-size: 10px; }
-    h3 { font-size: clamp(20px, 2.5vw, 25px); font-weight: 500; letter-spacing: -.04em; margin: 0 0 10px; word-break: keep-all; }
-    .description { color: var(--muted); font-size: 14px; line-height: 1.8; margin: 0; word-break: keep-all; }
-    .topics { display: block; color: var(--accent); font-size: 12px; line-height: 1.8; margin-top: 15px; }
+    .number { color: var(--label); padding-top: 3px; font-size: 14px; }
+    .category { display: block; color: var(--muted); margin-bottom: 9px; font-size: 12px; }
+    h3 { font-size: clamp(20px, 2.5vw, 25px); font-weight: 600; letter-spacing: -.015em; margin: 0 0 10px; word-break: keep-all; }
+    .description { color: var(--muted); font-size: 16px; line-height: 1.75; margin: 0; word-break: keep-all; }
+    .topics { display: block; color: var(--accent); font-size: 14px; line-height: 1.75; margin-top: 15px; }
     .arrow {
       display: grid;
       place-items: center;
@@ -103,25 +105,25 @@
     }
     .entry:hover .arrow { background: var(--accent); color: var(--paper); border-color: var(--accent); }
     footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px 0 36px; color: var(--muted); }
-    footer p { margin: 0; font-size: 12px; line-height: 1.8; }
-    .footer-note { font-size: 10px; }
+    footer p { margin: 0; font-size: 14px; line-height: 1.75; }
+    .footer-note { font-size: 12px; }
     @media (max-width: 640px) {
       .wrap { padding: 0 22px; }
       .masthead { padding-top: 23px; }
-      .edition { font-size: 10px; }
+      .edition { font-size: 12px; }
       .intro { grid-template-columns: 1fr; gap: 24px; padding: 48px 0 40px; }
-      .intro-copy { font-size: 14px; }
+      .intro-copy { font-size: 16px; }
       .entry { grid-template-columns: 26px 1fr 28px; gap: 12px; padding: 26px 0; }
       .entry:hover { padding-left: 0; }
       .arrow { width: 28px; height: 28px; font-size: 17px; }
-      .description { font-size: 13px; }
+      .description { font-size: 16px; }
       footer { flex-direction: column; gap: 10px; }
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --paper: #151c23;
         --ink: #e4e8e8;
-        --muted: #a2aeb7;
+        --muted: #b8c2ca;
         --line: #36424b;
         --accent: #9fc5df;
         --wash: #202b34;
