@@ -74,6 +74,12 @@ body{
 
 /* ---------- masthead ---------- */
 .mast{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.index-link{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-bottom:12px;
+  color:var(--accent-live);font-size:14px;text-decoration:none;
+}
+.index-link:hover{text-decoration:underline;text-underline-offset:4px}
+.index-link:focus-visible{outline:2px solid var(--accent-live);outline-offset:4px;border-radius:3px}
 .eyebrow{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-faint);margin:0 0 14px;
@@ -203,6 +209,7 @@ a{color:var(--accent-live)}
 
 <div class="wrap">
   <header class="mast">
+    <a class="index-link" href="./index.html"><span aria-hidden="true">←</span> 용어집 모음</a>
     <p class="eyebrow">HTML5 숏폼 게임 플랫폼 기획 · 공용 어휘</p>
     <h1>숏폼 게임 플랫폼 용어집</h1>
     <p class="lede">기획 세션에서 오간 개념을 <strong>업계에서 실제로 통용되는 명칭</strong>으로 고정한 문서입니다. 마지막 절에는 논의 과정에서 편의상 만들어 쓴 임시 표현을 따로 모아, 대외 문서에서 대체할 표준어를 붙였습니다.</p>

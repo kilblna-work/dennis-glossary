@@ -83,6 +83,12 @@ body{
   display:flex;flex-wrap:wrap;align-items:flex-end;gap:18px 32px;
 }
 .mast-id{flex:1 1 320px;min-width:0}
+.index-link{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-bottom:12px;
+  color:var(--allow);font-size:14px;text-decoration:none;
+}
+.index-link:hover{text-decoration:underline;text-underline-offset:4px}
+.index-link:focus-visible{outline:2px solid var(--allow);outline-offset:4px;border-radius:3px}
 .eyebrow{
   font-family:var(--mono);font-size:11px;font-weight:500;
   letter-spacing:.16em;text-transform:uppercase;color:var(--allow);
@@ -199,6 +205,7 @@ mark{background:var(--allow-soft);color:var(--allow);padding:0 2px;border-radius
 <header class="masthead">
   <div class="masthead-in">
     <div class="mast-id">
+      <a class="index-link" href="./index.html"><span aria-hidden="true">←</span> 용어집 모음</a>
       <p class="eyebrow">Reference · ngbe-shortform</p>
       <h1>서비스 구축 네트워크 용어집</h1>
       <p class="tagline">서비스 설계 · 구현 · 배포 · 운영에서 사용하는 표준 네트워크 용어. 클라우드 사례는 AWS 기준이며 GCP · Azure 대응어를 병기한다.</p>
